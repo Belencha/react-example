@@ -3,6 +3,7 @@ import Button from '@mui/material/Button';
 import logo from "./logo.svg";
 import "./App.css";
 import StyledDiv from "./components/StyledDiv/StyledDiv";
+import CustomText from "./components/CustomText/CustomText";
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
       <section className="App-section">
         <Button variant="contained">Hello world</Button>
         <StyledDiv />
-        and what about now?
+        <CustomText text="and what about now?" component="p" wannabe="h1"/>
       </section>
     </div>
   );
