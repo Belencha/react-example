@@ -1,4 +1,5 @@
 import React from "react";
+import Button from '@mui/material/Button';
 import logo from "./logo.svg";
 import "./App.css";
 
@@ -12,6 +13,8 @@ function App() {
           <br />
           Segunda tarea
         </p>
+        <Button variant="contained">Hello world</Button>
+        hey
       </header>
     </div>
   );
