@@ -2,6 +2,7 @@ import React from "react";
 import Button from '@mui/material/Button';
 import logo from "./logo.svg";
 import "./App.css";
+import StyledDiv from "./components/StyledDiv/StyledDiv";
 
 function App() {
   return (
@@ -13,9 +14,13 @@ function App() {
           <br />
           Segunda tarea
         </p>
-        <Button variant="contained">Hello world</Button>
-        hey
+        
       </header>
+      <section className="App-section">
+        <Button variant="contained">Hello world</Button>
+        <StyledDiv />
+        and what about now?
+      </section>
     </div>
   );
 }
