@@ -1,20 +1,23 @@
 import React from "react";
-import Button from '@mui/material/Button';
+import { Outlet, Link } from "react-router-dom";
 import "./App.css";
-import StyledDiv from "./components/StyledDiv/StyledDiv";
-import CustomText from "./components/CustomText/CustomText";
-import Dashboard from "./components/Dashboard/Dashboard";
 
 function App() {
   return (
+    <>
+    <nav
+      style={{
+        borderBottom: "solid 1px",
+        paddingBottom: "1rem",
+      }}
+    >
+      <Link to="/intro">Intro</Link> |{" "}
+      <Link to="/panel">Panel</Link>
+    </nav>
     <div className="App">
-      <Dashboard />
-      <section className="App-section">
-        <Button variant="contained">Hello world</Button>
-        <StyledDiv />
-        <CustomText text="and what about now?" component="p" wannabe="h1"/>
-      </section>
+      <Outlet />
     </div>
+    </>
   );
 }
 
