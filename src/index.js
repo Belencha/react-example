@@ -11,6 +11,7 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import ThinkingInReact from './routes/thinkingInReact';
 
 
 ReactDOM.render(
@@ -21,6 +22,7 @@ ReactDOM.render(
         <Route path="/" element={<App />}>
           <Route path="intro" element={<Intro />} />
           <Route path="panel" element={<Panel />} />
+          <Route path="thinking-in-react" element={<ThinkingInReact />} />
         </Route>
       </Routes>
     </BrowserRouter>

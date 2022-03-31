@@ -12,7 +12,8 @@ function App() {
       }}
     >
       <Link to="/intro">Intro</Link> |{" "}
-      <Link to="/panel">Panel</Link>
+      <Link to="/panel">Panel</Link> |{" "}
+      <Link to="/thinking-in-react">Thinking in React</Link>
     </nav>
     <div className="App">
       <Outlet />
