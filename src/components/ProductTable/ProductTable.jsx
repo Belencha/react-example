@@ -7,6 +7,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
+import ProductCategoryRow from '../ProductCategoryRow/ProductCategoryRow';
 
 const data = [
     { category: "Fruits", price: "$1", stocked: true, name: "Apple" },
@@ -82,11 +83,7 @@ const ProductTable = () => {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    <TableRow>
-                        <TableCell align="center" colSpan={2}>
-                            Country
-                        </TableCell>
-                    </TableRow>
+                    <ProductCategoryRow />
                     {rows
                     .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                     .map((row) => {
