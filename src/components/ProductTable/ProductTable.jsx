@@ -10,7 +10,7 @@ import TableRow from '@mui/material/TableRow';
 import ProductCategoryRow from '../ProductCategoryRow/ProductCategoryRow';
 import ProductRow from '../ProductRow/ProductRow';
 
-const data = [
+const dataRows = [
     { category: "Fruits", price: "$1", stocked: true, name: "Apple" },
     { category: "Fruits", price: "$1", stocked: true, name: "Dragonfruit" },
     { category: "Fruits", price: "$2", stocked: false, name: "Passionfruit" },
@@ -20,38 +20,17 @@ const data = [
 ];
 
 const columns = [
-    { id: 'name', label: 'Name', minWidth: 170 },
+    { id: 'name',
+      label: 'Name',
+      align: 'center',
+    },
     {
-      id: 'population',
-      label: 'Population',
-      minWidth: 170,
-      align: 'right',
+      id: 'price',
+      label: 'Price',
+      align: 'center',
       format: (value) => value.toLocaleString('en-US'),
     },
   ];
-
-function createData(name, code, population, size) {
-    const density = population / size;
-    return { name, code, population, size, density };
-}
-
-const rows = [
-    createData('India', 'IN', 1324171354, 3287263),
-    createData('China', 'CN', 1403500365, 9596961),
-    createData('Italy', 'IT', 60483973, 301340),
-    createData('United States', 'US', 327167434, 9833520),
-    createData('Canada', 'CA', 37602103, 9984670),
-    createData('Australia', 'AU', 25475400, 7692024),
-    createData('Germany', 'DE', 83019200, 357578),
-    createData('Ireland', 'IE', 4857000, 70273),
-    createData('Mexico', 'MX', 126577691, 1972550),
-    createData('Japan', 'JP', 126317000, 377973),
-    createData('France', 'FR', 67022000, 640679),
-    createData('United Kingdom', 'GB', 67545757, 242495),
-    createData('Russia', 'RU', 146793744, 17098246),
-    createData('Nigeria', 'NG', 200962417, 923768),
-    createData('Brazil', 'BR', 210147125, 8515767),
-];
 
 const ProductTable = () => {
     const [page, setPage] = React.useState(0);
@@ -68,7 +47,7 @@ const ProductTable = () => {
 
     return (
         <Paper sx={{ width: '100%' }}>
-            <TableContainer sx={{ maxHeight: 440 }}>
+            <TableContainer sx={{ maxHeight: 600 }}>
                 <Table stickyHeader aria-label="sticky table">
                 <TableHead>
                     <TableRow>
@@ -85,21 +64,21 @@ const ProductTable = () => {
                 </TableHead>
                 <TableBody>
                     <ProductCategoryRow />
-                    {rows
-                    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                    .map((row) => {
-                        console.log('desde fuera: ', row);
-                        return (
-                            <ProductRow columns={columns} row={row} key={row.code} />
-                        );
-                    })}
+                    {dataRows
+                        .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                        .map((dataRow) => {
+                            return (
+                                <ProductRow columns={columns} row={dataRow} key={dataRow.name} />
+                            );
+                        })
+                    }
                 </TableBody>
                 </Table>
             </TableContainer>
             <TablePagination
                 rowsPerPageOptions={[10, 25, 100]}
                 component="div"
-                count={rows.length}
+                count={dataRows.length}
                 rowsPerPage={rowsPerPage}
                 page={page}
                 onPageChange={handleChangePage}

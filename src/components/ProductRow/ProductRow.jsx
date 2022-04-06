@@ -3,9 +3,8 @@ import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 
 const ProductRow = ({columns, row,}) => {
-    console.log('desde dentro: ', row);
     return (
-        <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
+        <TableRow hover role="checkbox" tabIndex={-1} key={row.name}>
             {columns.map((column) => {
                 const value = row[column.id];
                 return (
