@@ -8,6 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import ProductCategoryRow from '../ProductCategoryRow/ProductCategoryRow';
+import ProductRow from '../ProductRow/ProductRow';
 
 const data = [
     { category: "Fruits", price: "$1", stocked: true, name: "Apple" },
@@ -87,19 +88,9 @@ const ProductTable = () => {
                     {rows
                     .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                     .map((row) => {
+                        console.log('desde fuera: ', row);
                         return (
-                        <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
-                            {columns.map((column) => {
-                            const value = row[column.id];
-                            return (
-                                <TableCell key={column.id} align={column.align}>
-                                {column.format && typeof value === 'number'
-                                    ? column.format(value)
-                                    : value}
-                                </TableCell>
-                            );
-                            })}
-                        </TableRow>
+                            <ProductRow columns={columns} row={row} key={row.code} />
                         );
                     })}
                 </TableBody>
