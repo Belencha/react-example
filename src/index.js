@@ -5,6 +5,7 @@ import './index.css';
 import App from './App';
 import Intro from "./routes/intro";
 import Panel from "./routes/panel";
+import Tdd from "./routes/tdd";
 import * as serviceWorker from './serviceWorker';
 import CssBaseline from '@mui/material/CssBaseline';
 import '@fontsource/roboto/300.css';
@@ -22,6 +23,7 @@ ReactDOM.render(
         <Route path="/" element={<App />}>
           <Route path="intro" element={<Intro />} />
           <Route path="panel" element={<Panel />} />
+          <Route path="tdd" element={<Tdd />} />
           <Route path="thinking-in-react" element={<ThinkingInReact />} />
         </Route>
       </Routes>
